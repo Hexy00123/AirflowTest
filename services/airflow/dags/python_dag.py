@@ -56,6 +56,3 @@ with DAG(
     )
 
     task1 >> task2 >> task3 >> task4
-
-if __name__ == "__main__":
-    print(get_data())
