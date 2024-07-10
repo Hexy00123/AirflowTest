@@ -6,6 +6,8 @@ from airflow import DAG
 from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 
+# sys.path.append('..')
+
 from src.data import get_data
 
 
@@ -55,7 +57,9 @@ with DAG(
         bash_command='pwd',
     )
 
-    task1 >> task2 >> task3 >> task4
+    task5 = PythonOperator(
+        task_id='get_data_from_package',
+        python_callable=get_data,
+    )
 
-if __name__ == "__main__":
-    print(get_data())
+    task1 >> task2 >> task3 >> task4 >> task5

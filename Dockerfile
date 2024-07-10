@@ -13,5 +13,5 @@ WORKDIR project
 COPY ./requirements.txt ./
 RUN pip install -r requirements.txt
 
-COPY services/airflow/dags/ /usr/local/airflow/dags/
-COPY src/ /usr/local/airflow/src/
+# COPY services/airflow/dags/ /usr/local/airflow/dags/
+# COPY src/ /usr/local/airflow/src/
